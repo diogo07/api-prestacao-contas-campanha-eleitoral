@@ -8,15 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "partido")
-public class Partido {
+@Table(name = "cargo")
+public class Cargo {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "ds_sigla")
-	private String sigla;
+	@Column(name = "ds_cargo")
+	private String descricao;
 
 	public Integer getId() {
 		return id;
@@ -26,13 +27,14 @@ public class Partido {
 		this.id = id;
 	}
 
-	public String getSigla() {
-		return sigla;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
+	
 	
 	
 }
