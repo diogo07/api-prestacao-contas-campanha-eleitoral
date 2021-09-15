@@ -6,18 +6,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name = "receita")
+@Table(name = "receitas")
 public class Receita {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@OneToOne
 	@JoinColumn(name = "id_doador")
 	private Doador doador;
+	
+	@ManyToOne
+	@JsonIgnore
+    @JoinColumn(name="id_candidatura", nullable=false)
+	private Candidatura candidatura; 
 	
 	@Column(name = "vl_receita")
 	private double valor;
@@ -99,6 +109,14 @@ public class Receita {
 
 	public void setEspecieRecurso(String especieRecurso) {
 		this.especieRecurso = especieRecurso;
+	}
+
+	public Candidatura getCandidatura() {
+		return candidatura;
+	}
+
+	public void setCandidatura(Candidatura candidatura) {
+		this.candidatura = candidatura;
 	}
 	
 	
