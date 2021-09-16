@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.com.prestacaocontascampanhaeleitoral.utils.Utils;
+
 @Entity
 @Table(name = "doador")
 public class Doador {
@@ -29,7 +31,7 @@ public class Doador {
 	}
 
 	public String getCpfOrCnpj() {
-		return cpfOrCnpj;
+		return Utils.cpfOrCnpjWithMask(cpfOrCnpj);
 	}
 
 	public void setCpfOrCnpj(String cpfOrCnpj) {

@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.prestacaocontascampanhaeleitoral.utils.Utils;
+
 @Table(name = "candidato")
 @Entity
 public class Candidato {
@@ -37,7 +39,7 @@ public class Candidato {
 		this.id = id;
 	}
 	public String getCpf() {
-		return cpf;
+		return Utils.cpfWithMask(cpf);
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
