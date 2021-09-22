@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.prestacaocontascampanhaeleitoral.domain.Candidato;
 import br.com.prestacaocontascampanhaeleitoral.domain.Receita;
+import br.com.prestacaocontascampanhaeleitoral.dto.ReceitaCategoriaDTO;
 import br.com.prestacaocontascampanhaeleitoral.dto.ReceitaDTO;
 
 @Repository
@@ -14,6 +15,9 @@ public interface ReceitaRepository extends JpaRepository<Receita, Integer>{
 
 	
 	public List<ReceitaDTO> findTotalByCandidato(Integer candidatoId);
+
+	
+	public List<ReceitaCategoriaDTO> findByCandidatoAndAnoGroupByTipo(Integer candidatoId, Integer ano);
 	
 	
 	public List<Receita> findByCandidatura_candidatoAndCandidatura_ano(Candidato candidato, Integer ano);

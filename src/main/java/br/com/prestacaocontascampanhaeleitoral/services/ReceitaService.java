@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.prestacaocontascampanhaeleitoral.domain.Candidato;
 import br.com.prestacaocontascampanhaeleitoral.domain.Receita;
+import br.com.prestacaocontascampanhaeleitoral.dto.ReceitaCategoriaDTO;
 import br.com.prestacaocontascampanhaeleitoral.dto.ReceitaDTO;
 import br.com.prestacaocontascampanhaeleitoral.repositories.ReceitaRepository;
 import javassist.tools.rmi.ObjectNotFoundException;
@@ -22,6 +23,10 @@ public class ReceitaService {
 	
 	public List<ReceitaDTO> findTotalByCandidato(Integer candidatoId) {
 		return receitaRepository.findTotalByCandidato(candidatoId);
+	}
+	
+	public List<ReceitaCategoriaDTO> findByCandidatoAndAnoGroupByTipo(Integer candidatoId, Integer ano) {
+		return receitaRepository.findByCandidatoAndAnoGroupByTipo(candidatoId, ano);
 	}
 	
 	public List<Receita> findByCandidatoAndAno(Integer candidatoId, Integer ano) throws ObjectNotFoundException {

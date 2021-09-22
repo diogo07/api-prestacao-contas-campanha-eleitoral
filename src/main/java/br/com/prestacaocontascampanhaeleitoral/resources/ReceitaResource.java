@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.prestacaocontascampanhaeleitoral.domain.Receita;
+import br.com.prestacaocontascampanhaeleitoral.dto.ReceitaCategoriaDTO;
 import br.com.prestacaocontascampanhaeleitoral.dto.ReceitaDTO;
 import br.com.prestacaocontascampanhaeleitoral.services.ReceitaService;
 import javassist.tools.rmi.ObjectNotFoundException;
@@ -30,5 +31,10 @@ public class ReceitaResource {
 	@GetMapping("/total")
 	ResponseEntity<List<ReceitaDTO>> byCandidato(@RequestParam Integer candidatoId){
 		return ResponseEntity.ok(receitaService.findTotalByCandidato(candidatoId));
+	}
+	
+	@GetMapping("/por-categoria")
+	ResponseEntity<List<ReceitaCategoriaDTO>> byCandidatoGroupCategoria(@RequestParam Integer candidatoId, @RequestParam Integer ano){
+		return ResponseEntity.ok(receitaService.findByCandidatoAndAnoGroupByTipo(candidatoId, ano));
 	}
 }
